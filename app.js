@@ -48,6 +48,9 @@ app.use('/api/admin', adminRoutes);
 app.use('/api', deliveryRoutes); // /nearest-farmers, /optimize-route/*
 app.use('/api', analyticsRoutes); // /analytics, /ml/demand-forecast/:productId
 app.use('/api', marketRoutes); // /market-insights
+app.use('/health',(req,res)=>{
+    res.send("server is healthy")
+})
 
 app.get('/api/health', (_, res) => res.json({ status: 'OK', version: '6.1' }));
 
